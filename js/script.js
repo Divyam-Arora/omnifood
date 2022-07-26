@@ -2,6 +2,7 @@ const yearEl = document.querySelector(".year");
 const navBtnEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header");
 const heroEl = document.querySelector(".section-hero");
+const navLinksEl = document.querySelectorAll(".main-nav-link");
 
 const curYear = new Date().getFullYear();
 yearEl.textContent = curYear;
@@ -27,6 +28,12 @@ const obeserver = new IntersectionObserver(
 );
 
 obeserver.observe(heroEl);
+
+navLinksEl.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    headerEl.classList.remove("nav-open");
+  });
+});
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions

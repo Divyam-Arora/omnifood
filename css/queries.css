@@ -129,7 +129,7 @@
   }
 
   .btn-mobile-nav {
-    display: inline-block;
+    display: flex;
   }
 
   .nav-open .main-nav {

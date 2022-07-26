@@ -1,3 +1,33 @@
+const yearEl = document.querySelector(".year");
+const navBtnEl = document.querySelector(".btn-mobile-nav");
+const headerEl = document.querySelector(".header");
+const heroEl = document.querySelector(".section-hero");
+
+const curYear = new Date().getFullYear();
+yearEl.textContent = curYear;
+
+navBtnEl.addEventListener("click", () => {
+  headerEl.classList.toggle("nav-open");
+});
+
+const obeserver = new IntersectionObserver(
+  function (entries) {
+    const { isIntersecting } = entries[0];
+    if (!isIntersecting) {
+      document.body.classList.add("sticky");
+    } else {
+      document.body.classList.remove("sticky");
+    }
+  },
+  {
+    root: null,
+    threshold: 0,
+    rootMargin: "-80px",
+  }
+);
+
+obeserver.observe(heroEl);
+
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 function checkFlexGap() {
